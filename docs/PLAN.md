@@ -67,7 +67,7 @@ Legend: `[ ]` not started · `[~]` in progress · `[x]` done.
 - Replace the default counter app with an empty "Mi Biblioteca" scaffold.
 - **Exit:** app builds and runs showing an empty library with the three tabs.
 
-### Phase 1 — Library MVP `[ ]`
+### Phase 1 — Library MVP `[x]`
 - Grid (mosaico) view with document cards: cover, format tag, title, author,
   pages, progress bar.
 - List/grid view toggle (grid default).
@@ -116,7 +116,16 @@ Legend: `[ ]` not started · `[~]` in progress · `[x]` done.
   import of multiple files, basic tests.
 - (Optional, later) add macOS + Windows via `flutter create --platforms=...`.
 
-## 6. Open questions / to confirm later
+## 6. Known issues (non-blocking)
+
+- **PDF cover thumbnail renders black on the grid card** for at least one test
+  file, even though the extracted cover PNG itself is a valid white-background
+  render (verified by pulling the file from device storage) and the in-reader
+  PDF view renders correctly. Likely a `DocumentCover`/`Image.file` display
+  issue specific to certain PDFs rather than a broken extraction. Revisit in
+  Phase 7 polish.
+
+## 7. Open questions / to confirm later
 
 - Reader layout mode per format (paginated vs continuous scroll) — default
   paginated; revisit for epub reflow in Phase 5.

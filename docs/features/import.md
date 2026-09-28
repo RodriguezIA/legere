@@ -25,8 +25,11 @@ The **"Importar"** floating action button on "Mi Biblioteca" (`library.md`).
    - **pdf:** render the first page to an image (`pdfx`).
    - **epub:** pull the cover from metadata (`epubx`).
    - **cbz/cbr:** first image entry in the archive.
-   - **txt/mobi (no cover):** generated placeholder cover showing the title.
-   Store under `getApplicationSupportDirectory()/covers/<uuid>.png`.
+   - **txt/mobi (no embeddable cover):** `coverPath` stays `null`; the library
+     card renders a generated placeholder (icon + title) at display time
+     instead of writing a cover file.
+   When a cover is extracted, store it under
+   `getApplicationSupportDirectory()/covers/<uuid>.png`.
 5. **Index** — insert a `Document` row (`../ARCHITECTURE.md` §3) with
    `importedAt = now`, `currentPage = 0`, `progress = 0`, `isFavorite = false`,
    `lastOpenedAt = null`.
